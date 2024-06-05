@@ -1,6 +1,6 @@
 # ROS with Xvfb, Openbox, and VNC Docker Setup
 
-This repository contains a Dockerfile and associated scripts to set up a ROS environment with a virtual framebuffer (Xvfb), Openbox window manager, and VNC server for remote access. 
+![Build Status](https://github.com/koishi-daisuki/Installing_ROS2_To_Docker/actions/workflows/main.yml/badge.svg)
 
 ## Contents
 
