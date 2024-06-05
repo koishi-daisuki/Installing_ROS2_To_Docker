@@ -1,6 +1,7 @@
-# ROS with Xvfb, Openbox, and VNC Docker Setup
+# ROS in Arm64 Docker Setup
 
 ![Build Status](https://github.com/koishi-daisuki/Installing_ROS2_To_Docker/actions/workflows/main.yml/badge.svg)
+
 
 ## Contents
 
@@ -31,10 +32,13 @@
 
 ### Run the Docker Container
 
-To run the Docker container with a mapped USB device and VNC access:
+To run the Docker container with a VNC access:
 
 ```bash
 docker run -it --rm \
     -p 5900:5900 \
     --name ros2_rolling \
     ros2-rolling
+```
+access to VNC:
+localhost:5900
