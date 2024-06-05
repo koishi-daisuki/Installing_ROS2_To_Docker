@@ -43,7 +43,8 @@ RUN until apt-get install -y \
     libx11-xcb1 \
     libfontconfig1 \
     openbox \
-    libxrender1; do echo "Retrying apt-get install..."; sleep 2; done
+    libxrender1 \
+    menu; do echo "Retrying apt-get install..."; sleep 2; done
 
 RUN until apt install -y \
     ~nros-rolling-rqt*; do echo "Retrying apt-get install..."; sleep 2; done
