@@ -13,7 +13,7 @@
 
 ### Prerequisites
 
-- Docker installed on your host machine.
+- Docker installed on your host machine.[Install Docker](https://docs.docker.com/get-docker/)
 - Arm64 architecture (tested on macos sonoma 14.5 M3 Max)
 - VNC client installed on your local machine to connect to the VNC server running in the Docker container. Recommandation:![realvnc](https://www.realvnc.com/en/connect/download/)
 
