@@ -8,7 +8,7 @@
 - [`Dockerfile`](Dockerfile): Instructions to build the Docker image.
 - [`entrypoint.sh`](config/entrypoint.sh): Script to set up and start Xvfb, Openbox, and x11vnc.
 - [`menu.xml`](config/etc/xdg/openbox/menu.xml): Openbox menu configuration file.
-- [`rc.xml`](config/etc/xdg/openbox/rc.xml): Openbox configuration file.
+- [`rc.xml`](config/root/.config/openbox/rc.xml): Openbox configuration file.
 ## Getting Started
 
 ### Prerequisites
