@@ -38,13 +38,11 @@ RUN until apt-get install -y \
     xfonts-75dpi \
     x11-apps; do echo "Retrying apt-get install..."; sleep 2; done
 
-
 RUN until apt-get install -y \
     libx11-xcb1 \
     libfontconfig1 \
     openbox \
-    libxrender1 \
-    menu; do echo "Retrying apt-get install..."; sleep 2; done
+    libxrender1; do echo "Retrying apt-get install..."; sleep 2; done
 
 RUN until apt install -y \
     ~nros-rolling-rqt*; do echo "Retrying apt-get install..."; sleep 2; done
@@ -57,13 +55,22 @@ RUN echo 'export QT_X11_NO_MITSHM=1' >> ~/.bashrc
 RUN echo 'export QT_QPA_PLATFORM=xcb' >> ~/.bashrc
 RUN echo 'export DISPLAY=:1' >> ~/.bashrc
 RUN echo 'export XDG_RUNTIME_DIR=/tmp/runtime-root' >> ~/.bashrc
+RUN echo 'export QT_SCALE_FACTOR=1.5' >> ~/.bashrc
 
 # Create basic openbox configuration
-RUN mkdir -p /etc/xdg/openbox
-COPY menu.xml /etc/xdg/openbox/menu.xml
+RUN mkdir -p /etc/xdg/openbox /var/lib/openbox /root/.config/openbox
+COPY config/etc/xdg/openbox/menu.xml /etc/xdg/openbox/menu.xml
+COPY config/etc/xdg/openbox/menu.xml /var/lib/openbox/debian-menu.xml
+COPY config/root/.config/openbox/rc.xml /root/.config/openbox/rc.xml
+
+# Copy .Xresources file
+COPY config/root/.Xresources /root/.Xresources
+
+# Copy GTK settings file
+COPY config/root/.config/gtk-3.0/settings.ini /root/.config/gtk-3.0/settings.ini
 
 # Copy and set the startup script
-COPY entrypoint.sh /entrypoint.sh
+COPY config/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Load ROS 2 environment variables
